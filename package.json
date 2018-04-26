@@ -1,0 +1,22 @@
+{
+  "name": "base-hapi",
+  "version": "1.0.0",
+  "description": "hapi project starter",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hapi"
+  ],
+  "author": "mayu",
+  "license": "MIT",
+  "dependencies": {
+    "blipp": "^3.0.0",
+    "bunyan": "^1.8.12",
+    "hapi": "^17.3.1",
+    "hapi-auth-jwt2": "^8.1.0",
+    "hapi-swagger": "^9.1.1",
+    "jsonwebtoken": "^8.2.1"
+  }
+}
