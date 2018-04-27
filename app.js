@@ -45,14 +45,6 @@ const validate = function(decoded, request) {
 };
 
 const init = async () => {
-  const swaggerOptions = {
-    info: { title: '魔法助理接口说明文档', version: '1.0.0', description: '码语的API接口文档！' },
-    tags: [{ name: 'admin', description: '后台管理' }],
-    basePath: '/api/v1/',
-    pathPrefixSize: 3,
-    documentationPath: '/docs'
-  };
-
   [
     await server.register(HapiAuthJwt2),
     await server.register(Blipp),
@@ -61,7 +53,7 @@ const init = async () => {
       Vision,
       {
         plugin: HapiSwagger,
-        options: swaggerOptions
+        options: config.swagger
       }
     ])
   ];

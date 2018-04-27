@@ -24,6 +24,13 @@ module.exports = {
   mongodb: {
     url: 'mongodb://127.0.0.1/app'
   },
+  swagger: {
+    info: { title: '魔法助理接口说明文档', version: '1.0.0', description: '码语的API接口文档！' },
+    tags: [{ name: 'admin', description: '后台管理' }],
+    basePath: '/api/v1/',
+    pathPrefixSize: 3,
+    documentationPath: '/docs'
+  },
   logs: {
     name: 'app',
     folder: path.join(__dirname, '../logs/'),
