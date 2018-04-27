@@ -13,6 +13,7 @@ const Db = require('./mongodb.js');
 const log = require('./log');
 // route
 // const adminCourseRoute = require('./routes/admin/course');
+const userRoute = require('./routes/user');
 
 const server = Hapi.server({
   port: config.app.port,
@@ -45,8 +46,11 @@ const validate = function(decoded, request) {
 
 const init = async () => {
   const swaggerOptions = {
-    info: { title: '魔法助理接口说明文档' },
-    tags: [{ name: 'admin', description: '后台管理' }]
+    info: { title: '魔法助理接口说明文档', version: '1.0.0', description: '码语的API接口文档！' },
+    tags: [{ name: 'admin', description: '后台管理' }],
+    basePath: '/api/v1/',
+    pathPrefixSize: 3,
+    documentationPath: '/docs'
   };
 
   [
@@ -93,6 +97,7 @@ const init = async () => {
   });
 
   // server.route(adminCourseRoute);
+  server.route(userRoute);
 
   await server.start();
   console.log(`Server running at: ${server.info.uri}`);
