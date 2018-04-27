@@ -1,29 +1,31 @@
-import path from 'path';
+const path = require('path');
 
 process.env.JWT_KEY = 'haoyescom';
 
-export default {
+module.exports = {
   app: {
     host: '0.0.0.0',
     port: 8000,
     jwtKey: process.env.JWT_KEY,
     defaultCurrency: 'EUR'
   },
-  database: {
-    servers: [
-      {
-        host: process.env.DB_PORT_28015_TCP_ADDR || 'localhost',
-        port: process.env.DB_PORT_28015_TCP_PORT || 28015
-      }
-    ],
-    name: 'atlas'
+  api: {
+    routePrefix: '/api/v1',
+    adminRoutePrefix: '/api/admin/v1'
   },
-  redis: {
-    port: 6379,
-    host: '127.0.0.1',
-    auth: ''
+  wechat: {
+    appId: 'your appId',
+    appSecret: 'your appSecret'
+  },
+  aliyun: {
+    accessKeyId: 'your accesskeyId',
+    secret: 'your secret'
+  },
+  mongodb: {
+    url: 'mongodb://127.0.0.1/app'
   },
   logs: {
+    name: 'app',
     folder: path.join(__dirname, '../logs/'),
     streams: [
       {
@@ -51,7 +53,7 @@ export default {
   switchPayments: {
     enabled: true,
     baseUrl: 'https://api-test.switchpayments.com/v2',
-    accountId: process.env.SWITCH_ACCOUNT_ID,
+    accountId: process.env.SWITCH_ACCOUNT_ID || 0,
     privateKey: process.env.SWITCH_PRIVATE_KEY
   },
   mailgun: {

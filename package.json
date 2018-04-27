@@ -4,7 +4,7 @@
   "description": "hapi project starter",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_ENV=development nodemon app.js"
   },
   "keywords": [
     "hapi"
@@ -17,6 +17,9 @@
     "hapi": "^17.3.1",
     "hapi-auth-jwt2": "^8.1.0",
     "hapi-swagger": "^9.1.1",
-    "jsonwebtoken": "^8.2.1"
+    "inert": "^5.1.0",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.16",
+    "vision": "^5.3.2"
   }
 }
